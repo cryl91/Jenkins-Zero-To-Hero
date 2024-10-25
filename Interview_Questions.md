@@ -35,7 +35,7 @@ Q: How to backup Jenkins ?
 
 A: Backing up Jenkins is a very easy process, there are multiple default and configured files and folders in Jenkins that you might want to backup.
 ```  
-  - Configuration: The `~/.jenkins` folder. You can use a tool like rsync to backup the entire directory to another location.
+  - Configuration: The `~/.jenkins` folder. You can use a tool like rsync(a shell command) to backup the entire directory to another location.
   
     - Plugins: Backup the plugins installed in Jenkins by copying the plugins directory located in JENKINS_HOME/plugins to another location.
     
@@ -56,7 +56,7 @@ A: Again, there are multiple ways to achieve this,
    
    - Environment Variables: Secrets can be stored as environment variables in Jenkins and referenced in build scripts. However, this method is less secure because environment variables are visible in the build logs.
    
-   - Hashicorp Vault: Jenkins can be integrated with Hashicorp Vault, which is a secure secrets management tool. Vault can be used to store and manage sensitive information, and Jenkins can retrieve the secrets as needed for builds.
+   - Hashicorp Vault: It is a tool. Jenkins can be integrated with Hashicorp Vault, which is a secure secrets management tool. Vault can be used to store and manage sensitive information, and Jenkins can retrieve the secrets as needed for builds.
    
    - Third-party Secret Management Tools: Jenkins can also be integrated with third-party secret management tools such as AWS Secrets Manager, Google Cloud Key Management Service, and Azure Key Vault.
 ```
@@ -118,7 +118,7 @@ A: Log into the Jenkins master and navigate to Manage Jenkins > Manage Nodes > N
 
 Q: How to add a new plugin in Jenkins ?
 
-A: Using the CLI, 
+A: Using the CLI, You can write a shell script and use the below java command to install pluggins
    `java -jar jenkins-cli.jar install-plugin <PLUGIN_NAME>`
   
   Using the UI,
@@ -128,7 +128,7 @@ A: Using the CLI,
 
 Q: What is JNLP and why is it used in Jenkins ?
 
-A: In Jenkins, JNLP is used to allow agents (also known as "slave nodes") to be launched and managed remotely by the Jenkins master instance. This allows Jenkins to distribute build tasks to multiple agents, providing scalability and improving performance.
+A: It is a mechanism of how your master nodes will talk to your worker nodes. In Jenkins, JNLP is used to allow agents (also known as "slave nodes") to be launched and managed remotely by the Jenkins master instance. This allows Jenkins to distribute build tasks to multiple agents, providing scalability and improving performance.
 
    When a Jenkins agent is launched using JNLP, it connects to the Jenkins master and receives build tasks, which it then executes. The results of the build are then sent back to the master and displayed in the Jenkins user interface.
 
